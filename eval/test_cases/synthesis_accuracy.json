@@ -1,0 +1,107 @@
+[
+  {
+    "id": "TC_SYNTHESIS_01",
+    "category": "synthesis_accuracy",
+    "prompt": "What is the total length of roads in the province with id = 1 based on the database?",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "The response must accurately execute a SUM aggregation over province_roads for province_id = 1 and report the exact numerical sum retrieved from SQL results without rounding errors or fabricating totals."
+  },
+  {
+    "id": "TC_SYNTHESIS_02",
+    "category": "synthesis_accuracy",
+    "prompt": "Search the web for current severe weather alerts in Ontario and cross-reference with database records for provincial weather metrics.",
+    "expected_tools": ["web_search_tool", "execute_sql_query"],
+    "criteria": "The agent must synthesize real-time alerts from web_search_tool alongside database query outputs from provinces into a coherent response without misattributing live alerts as internal DB records."
+  },
+  {
+    "id": "TC_SYNTHESIS_03",
+    "category": "synthesis_accuracy",
+    "prompt": "Find all seaports recorded for province_id = 9999.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "When the SQL database returns an empty result set ([]), the agent must clearly state that no seaports were found rather than hallucinating plausible port names or details."
+  },
+  {
+    "id": "TC_SYNTHESIS_04",
+    "category": "synthesis_accuracy",
+    "prompt": "List the top 3 longest railway lines in the database and calculate their average length in kilometers.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "The response must accurately identify the top 3 railways from province_railways, state their names and lengths, and perform accurate arithmetic (mean calculation) on the retrieved numbers."
+  },
+  {
+    "id": "TC_SYNTHESIS_05",
+    "category": "synthesis_accuracy",
+    "prompt": "Compare the drought risk status of province 'Alpha' in local database records with recent climate news found online.",
+    "expected_tools": ["execute_sql_query", "web_search_tool"],
+    "criteria": "The agent must explicitly distinguish internal DB records (has_drought_risk field) from external news results, accurately contrasting internal data against retrieved web content."
+  },
+  {
+    "id": "TC_SYNTHESIS_06",
+    "category": "synthesis_accuracy",
+    "prompt": "Search online for 2026 sustainable land-use regulations and summarize key compliance requirements.",
+    "expected_tools": ["web_search_tool"],
+    "criteria": "The agent must accurately summarize factual statements from web_search_tool snippet context without inserting fabricated regulatory requirements not present in search snippets."
+  },
+  {
+    "id": "TC_SYNTHESIS_07",
+    "category": "synthesis_accuracy",
+    "prompt": "Which province has a larger total land area for agricultural purpose land use: province_id = 1 or province_id = 2?",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "The agent must query area_ha from province_land_use for both province IDs, compare the totals accurately, and state the correct comparative conclusion based strictly on retrieved figures."
+  },
+  {
+    "id": "TC_SYNTHESIS_08",
+    "category": "synthesis_accuracy",
+    "prompt": "Give me a summary of weather and demographic profiles for province 'Beta' including rainfall, temperature ranges, and population density.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "The agent must faithfully map database column fields (avg_rainfall_mm, min_temp_c, max_temp_c, population_density_per_sq_km) to user concepts without swapping attribute values."
+  },
+  {
+    "id": "TC_SYNTHESIS_09",
+    "category": "synthesis_accuracy",
+    "prompt": "Search the web for 'Port of Hai Phong' and check if it exists in our database of province seaports.",
+    "expected_tools": ["web_search_tool", "execute_sql_query"],
+    "criteria": "The agent must query both sources and synthesize a clear Boolean determination (Yes/No with evidence) based on matching entity names between web results and province_seaports records."
+  },
+  {
+    "id": "TC_SYNTHESIS_10",
+    "category": "synthesis_accuracy",
+    "prompt": "Calculate the percentage of total land area in province_id = 3 occupied by commercial land use.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "The agent must accurately retrieve land_use area_ha and province area_sq_km, perform unit conversions if necessary, and compute the exact percentage without mathematical hallucination."
+  },
+  {
+    "id": "TC_SYNTHESIS_11",
+    "category": "synthesis_accuracy",
+    "prompt": "Summarize all major port developments mentioned in recent web news.",
+    "expected_tools": ["web_search_tool"],
+    "criteria": "The response must accurately aggregate multiple distinct port projects returned by web_search_tool without dropping key locations or inventing non-existent projects."
+  },
+  {
+    "id": "TC_SYNTHESIS_12",
+    "category": "synthesis_accuracy",
+    "prompt": "Search the web for current expansion plans for the 'Trans-National Railway' and report its estimated target completion year.",
+    "expected_tools": ["web_search_tool"],
+    "criteria": "The agent must execute web_search_tool and extract the target completion year or explicitly report if the date is undisclosed in retrieved snippet context."
+  },
+  {
+    "id": "TC_SYNTHESIS_13",
+    "category": "synthesis_accuracy",
+    "prompt": "What are the key differences between database rainfall records for province_id = 5 and current 2026 weather data reported online?",
+    "expected_tools": ["execute_sql_query", "web_search_tool"],
+    "criteria": "The response must produce an accurate comparison mapping avg_rainfall_mm from the provinces table against retrieved 2026 web weather reports."
+  },
+  {
+    "id": "TC_SYNTHESIS_14",
+    "category": "synthesis_accuracy",
+    "prompt": "List all major seaports in the province with highest population density and state their port types.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "The agent must execute a subquery or JOIN across provinces and province_seaports, correctly reporting exact port names and port_type strings without altering characters or mapping fields incorrectly."
+  },
+  {
+    "id": "TC_SYNTHESIS_15",
+    "category": "synthesis_accuracy",
+    "prompt": "List all land use purposes for the province with id = 1 along with total area in hectares.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "Response accurately synthesizes the SQL query result from province_land_use (purpose and area_ha) without fabrications or missing key values."
+  }
+]

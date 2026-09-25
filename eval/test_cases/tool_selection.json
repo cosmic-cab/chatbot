@@ -1,0 +1,107 @@
+[
+  {
+    "id": "TC_TOOL_01",
+    "category": "tool_selection",
+    "prompt": "How many total seaports are recorded in our database?",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "Must call execute_sql_query to run a COUNT query on the province_seaports database table."
+  },
+  {
+    "id": "TC_TOOL_02",
+    "category": "tool_selection",
+    "prompt": "Search the web for the latest 2026 infrastructure safety standards.",
+    "expected_tools": ["web_search_tool"],
+    "criteria": "Must call web_search_tool for external real-time web information."
+  },
+  {
+    "id": "TC_TOOL_03",
+    "category": "tool_selection",
+    "prompt": "Find all provinces with high flood risk in our database and check current news online regarding recent flooding in those areas.",
+    "expected_tools": ["execute_sql_query", "web_search_tool"],
+    "criteria": "Must invoke both execute_sql_query (to retrieve provinces with has_flood_inundation_risk = true) and web_search_tool to fulfill the multi-source request."
+  },
+  {
+    "id": "TC_TOOL_04",
+    "category": "tool_selection",
+    "prompt": "Hello! How are you doing today?",
+    "expected_tools": [],
+    "criteria": "Must answer directly without triggering any tools for conversational chitchat."
+  },
+  {
+    "id": "TC_TOOL_05",
+    "category": "tool_selection",
+    "prompt": "What is the capital city of France?",
+    "expected_tools": [],
+    "criteria": "Must answer directly from parametric knowledge without executing database or web search tools."
+  },
+  {
+    "id": "TC_TOOL_06",
+    "category": "tool_selection",
+    "prompt": "List all column names and data types in the province_land_use table.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "Must call execute_sql_query to inspect the schema or select metadata from information_schema."
+  },
+  {
+    "id": "TC_TOOL_07",
+    "category": "tool_selection",
+    "prompt": "Search online for recent weather advisories and tropical storm warnings in Vietnam.",
+    "expected_tools": ["web_search_tool"],
+    "criteria": "Must select web_search_tool when explicitly directed to look up live external web advisories."
+  },
+  {
+    "id": "TC_TOOL_08",
+    "category": "tool_selection",
+    "prompt": "Show me the top 5 provinces with the highest population density from the internal database.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "Must route to execute_sql_query for internal database querying using ORDER BY population_density_per_sq_km DESC LIMIT 5."
+  },
+  {
+    "id": "TC_TOOL_09",
+    "category": "tool_selection",
+    "prompt": "Who won the World Series in 1998?",
+    "expected_tools": [],
+    "criteria": "Must answer static historical trivia directly without calling tools."
+  },
+  {
+    "id": "TC_TOOL_10",
+    "category": "tool_selection",
+    "prompt": "Check if 'Port of Hai Phong' exists in our database, and search the web for its primary export commodities.",
+    "expected_tools": ["execute_sql_query", "web_search_tool"],
+    "criteria": "Must select both execute_sql_query and web_search_tool for multi-source database checking and web contextualization."
+  },
+  {
+    "id": "TC_TOOL_11",
+    "category": "tool_selection",
+    "prompt": "What is 25 multiplied by 14?",
+    "expected_tools": [],
+    "criteria": "Must perform basic mental arithmetic directly without triggering external tool calls."
+  },
+  {
+    "id": "TC_TOOL_12",
+    "category": "tool_selection",
+    "prompt": "Query our database for all railways that are longer than 100 kilometers.",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "Must execute execute_sql_query on the province_railways table with a filtered threshold query."
+  },
+  {
+    "id": "TC_TOOL_13",
+    "category": "tool_selection",
+    "prompt": "Search the web for the official website URL of the Ministry of Transport of Vietnam.",
+    "expected_tools": ["web_search_tool"],
+    "criteria": "Must use web_search_tool to look up external web URLs."
+  },
+  {
+    "id": "TC_TOOL_14",
+    "category": "tool_selection",
+    "prompt": "Can you explain what SQL index optimization is in simple terms?",
+    "expected_tools": [],
+    "criteria": "Must provide a direct conceptual explanation without issuing unnecessary tool calls."
+  },
+  {
+    "id": "TC_TOOL_15",
+    "category": "tool_selection",
+    "prompt": "What is the total area in sq km of all provinces that have a drought risk?",
+    "expected_tools": ["execute_sql_query"],
+    "criteria": "Must call execute_sql_query to perform a SUM(area_sq_km) on the provinces table filtering by has_drought_risk = true, avoiding web search."
+  }
+]
